@@ -7,10 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- TODO: Downgrading to 2.5.198 will solve the problem because source generators where not used there -->
     <PackageReference Include="MessagePack" Version="3.1.4">
       <!--
         Do not propagate MessagePack API to users of CommonLib.
       -->
+
+      <!-- TODO: Removing the private assets will solve the problem because the MessagePack DLL will then be found by MessagePackNotFound.UserControlsLib -->
       <PrivateAssets>Analyzers; Build; ContentFiles; Compile</PrivateAssets>
     </PackageReference>
   </ItemGroup>
